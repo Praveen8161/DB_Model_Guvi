@@ -1,0 +1,49 @@
+CREATE TABLE Students (
+  Student_id INTEGER,
+  Student_Name TEXT,
+  Batch TEXT,
+  Course TEXT
+)
+
+INSERT INTO Students 
+VALUES (1,"Karen","B49WD2","UI/UX Designer"),
+(2,"Mohan","B51WD2","Full Stack Developer"),
+(3,"Pradeep","B50WD2","Full Stack Developer"),
+(4,"Santhosh","B50WD2","Full Stack Developer"),
+(5,"JOHN","B89WE4","DIGITAL MARKETING")
+
+UPDATE Students
+SET Student_Name = "Ashok",
+Batch = "B51WD2",
+Course = "Full Stack Developer"
+WHERE Student_id = 1
+
+DELETE FROM Students
+WHERE Student_id = 5
+
+CREATE TABLE Mentor (
+  Batch_id TEXT,
+  Mentor_Name TEXT,
+  Qualification TEXT
+)
+
+INSERT INTO Mentor
+VALUES ("B51WD2","Clark","Full Stack Developer"),
+("B50WD2","Amer","Front End Developer")
+
+SELECT Mentor_Name, Batch, COUNT(Batch), Course  FROM Mentor
+LEFT JOIN Students
+ON Batch_id = Batch
+GROUP BY Batch
+
+SELECT Student_Name, Mentor_Name, Course  FROM Students
+LEFT JOIN Mentor
+ON Batch_id = Batch
+
+ALTER TABLE Mentor
+DROP Qualification
+
+ALTER TABLE Students
+ADD Completion_Rate TEXT
+DEFAULT "100%"
+
