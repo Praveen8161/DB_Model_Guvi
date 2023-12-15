@@ -1,2 +1,2 @@
-# MongoDB Quries
-Basic Queries of MongoDB
+# SQL Quries
+Basic Queries of SQL
